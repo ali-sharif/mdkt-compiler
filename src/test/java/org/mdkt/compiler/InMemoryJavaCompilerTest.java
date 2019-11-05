@@ -7,12 +7,8 @@ import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class InMemoryJavaCompilerTest {
-	private static final Logger logger = LoggerFactory.getLogger(InMemoryJavaCompilerTest.class);
-
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
 
@@ -35,7 +31,7 @@ public class InMemoryJavaCompilerTest {
 		String cls1 = "public class A{ public B b() { return new B(); }}";
 		String cls2 = "public class B{ public String toString() { return \"B!\"; }}";
 
-		Map<String, Class<?>> compiled = InMemoryJavaCompiler.newInstance().addSource("A", cls1).addSource("B", cls2).compileAll();
+		Map<String, Class<?>> compiled = InMemoryJavaCompiler.newInstance().addSource("A", cls1).addSource("B", cls2).compileAll().getClassMap();
 
 		Assert.assertNotNull(compiled.get("A"));
 		Assert.assertNotNull(compiled.get("B"));
@@ -110,7 +106,7 @@ public class InMemoryJavaCompilerTest {
 		try {
 			InMemoryJavaCompiler.newInstance().compile("org.mdkt.HelloClass", sourceCode.toString());
 		} catch (Exception e) {
-			logger.info("Exception caught: {}", e);
+			System.out.println(e);
 			throw e;
 		}
 	}

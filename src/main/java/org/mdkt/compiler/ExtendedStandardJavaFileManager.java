@@ -55,4 +55,8 @@ public class ExtendedStandardJavaFileManager extends
 	public ClassLoader getClassLoader(JavaFileManager.Location location) {
 		return cl;
 	}
+
+	public List<CompiledCode> getCompiledCode() {
+		return this.compiledCode;
+	}
 }
