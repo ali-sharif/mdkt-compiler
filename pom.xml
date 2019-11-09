@@ -5,7 +5,7 @@
     <artifactId>mdkt-compiler</artifactId>
     <version>1.4.0</version>
     <packaging>jar</packaging>
-    <url>https://github.com/ali-sharif/in-memory-javac</url>
+    <url>https://github.com/ali-sharif/mdkt-compiler</url>
 
     <name>mdkt-compiler</name>
     <description>Small utility to compile java code in memory</description>
